@@ -55,7 +55,7 @@ public class Evento {
 		this.clienteAssociado = clienteAssociado;
 	}
 	
-	public boolean isFoiContradoOuNao() {
+	public boolean getFoiContradoOuNao() {
 		return foiContradoOuNao;
 	}
 	

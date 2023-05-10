@@ -1,82 +1,42 @@
-<servirce.CentralDeInformacoes>
+<baseDedados.CentralDeInformacoes>
   <todosOsClientes>
-    <model.Cliente>
-      <nome>ana</nome>
-      <sexo>F</sexo>
-      <CPF>123</CPF>
-      <email>ana123</email>
-    </model.Cliente>
     <model.Cliente>
       <nome>andrey</nome>
       <sexo>M</sexo>
-      <CPF>123</CPF>
-      <email>alsjh</email>
+      <CPF>70401600483</CPF>
+      <email>eandrey413@gmail.com</email>
     </model.Cliente>
     <model.Cliente>
-      <nome>ana</nome>
-      <sexo>F</sexo>
-      <CPF>32903876070</CPF>
-      <email>ana@123</email>
-    </model.Cliente>
-    <model.Cliente>
-      <nome>ana</nome>
-      <sexo>F</sexo>
-      <CPF>33757744004</CPF>
-      <email>anaM@123</email>
-    </model.Cliente>
-    <model.Cliente>
-      <nome>sid</nome>
+      <nome>ismael</nome>
       <sexo>M</sexo>
-      <CPF>64852172404</CPF>
-      <email>sid@g.com</email>
-    </model.Cliente>
-    <model.Cliente>
-      <nome>sid</nome>
-      <sexo>M</sexo>
-      <CPF>77787313048</CPF>
-      <email>sid2@g.com</email>
+      <CPF>71308976437</CPF>
+      <email>ismaelmorais64@gmail.com</email>
     </model.Cliente>
   </todosOsClientes>
   <todosEvento>
     <model.Evento>
-      <id>0</id>
-      <nomeDoEvento>casarmento</nomeDoEvento>
-      <dataEHoraDoEvento>2025-08-20T22:30:00</dataEHoraDoEvento>
-      <localDoEvento>igreja</localDoEvento>
-      <clienteAssociado reference="../../../todosOsClientes/model.Cliente"></clienteAssociado>
-      <foiContradoOuNao>true</foiContradoOuNao>
-    </model.Evento>
-    <model.Evento>
-      <id>1683050021144</id>
-      <nomeDoEvento>aniversario</nomeDoEvento>
-      <dataEHoraDoEvento>2023-06-10T12:20:00</dataEHoraDoEvento>
-      <localDoEvento>las</localDoEvento>
+      <id>1683485022065</id>
+      <nomeDoEvento>beber com raiva</nomeDoEvento>
+      <dataEHoraDoEvento>2023-11-02T12:00:00</dataEHoraDoEvento>
+      <localDoEvento>bar</localDoEvento>
       <clienteAssociado reference="../../../todosOsClientes/model.Cliente"/>
       <foiContradoOuNao>true</foiContradoOuNao>
     </model.Evento>
     <model.Evento>
-      <id>1683050149410</id>
-      <nomeDoEvento>missa</nomeDoEvento>
-      <dataEHoraDoEvento>2025-05-20T23:25:00</dataEHoraDoEvento>
-      <localDoEvento>sd</localDoEvento>
-      <clienteAssociado reference="../../../todosOsClientes/model.Cliente"></clienteAssociado>
-      <foiContradoOuNao>true</foiContradoOuNao>
+      <id>1683487205434</id>
+      <nomeDoEvento>vamos para o culto</nomeDoEvento>
+      <dataEHoraDoEvento>2023-05-07T18:00:00</dataEHoraDoEvento>
+      <localDoEvento>igreja assembleia de Deus</localDoEvento>
+      <clienteAssociado reference="../../../todosOsClientes/model.Cliente[2]"/>
+      <foiContradoOuNao>false</foiContradoOuNao>
     </model.Evento>
     <model.Evento>
-      <id>1683137113085</id>
-      <nomeDoEvento>hjfd</nomeDoEvento>
-      <dataEHoraDoEvento>2024-04-10T23:59:00</dataEHoraDoEvento>
-      <localDoEvento>sdfd</localDoEvento>
-      <clienteAssociado reference="../../../todosOsClientes/model.Cliente[5]"></clienteAssociado>
-      <foiContradoOuNao>true</foiContradoOuNao>
-    </model.Evento>
-    <model.Evento>
-      <id>1683137349042</id>
-      <nomeDoEvento>teste</nomeDoEvento>
-      <dataEHoraDoEvento>2025-05-10T12:55:00</dataEHoraDoEvento>
-      <localDoEvento>lkj</localDoEvento>
-      <clienteAssociado reference="../../../todosOsClientes/model.Cliente[5]"/>
+      <id>1683487443432</id>
+      <nomeDoEvento>tomar uma</nomeDoEvento>
+      <dataEHoraDoEvento>2023-05-07T22:00:00</dataEHoraDoEvento>
+      <localDoEvento>Bar das Prima</localDoEvento>
+      <clienteAssociado reference="../../../todosOsClientes/model.Cliente"/>
       <foiContradoOuNao>true</foiContradoOuNao>
     </model.Evento>
   </todosEvento>
-</servirce.CentralDeInformacoes>
+</baseDedados.CentralDeInformacoes>

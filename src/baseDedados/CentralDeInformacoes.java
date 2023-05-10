@@ -1,4 +1,4 @@
-package servirce;
+package baseDedados;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -44,7 +44,6 @@ public class CentralDeInformacoes {
 	public boolean adicionarEvento(Evento evento) {
 		LocalDateTime dataHoraAtual = LocalDateTime.now();
 		if(!todosEvento.contains(evento) && evento.getDataHora().isAfter(dataHoraAtual)) {
-			evento.setFoiContradoOuNao(true);
 			todosEvento.add(evento);
 			return true;
 			

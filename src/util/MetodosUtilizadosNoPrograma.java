@@ -1,15 +1,16 @@
-package servirce;
+package util;
 
+import java.sql.Date;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import baseDedados.CentralDeInformacoes;
 import enuns.TipoSexo;
 import model.Cliente;
 import model.Evento;
-import util.ValidadorCPF;
 
 public class MetodosUtilizadosNoPrograma {
 	
@@ -25,6 +26,8 @@ public class MetodosUtilizadosNoPrograma {
 				+ "\n[4] Novo Evento"
 				+ "\n[5] Listar todos os evento"
 				+ "\n[6] Listar os evento de um(a) cliente"
+				+ "\n[7] Gerar relatorio de programação do mês"
+				+ "\n[8] Contratar evento"
 				+ "\n[S] Sair"
 				+ "\n"
 				+ "\n-Escolha uma opção:");
@@ -72,9 +75,9 @@ public class MetodosUtilizadosNoPrograma {
 	}	
 	
 	
-	public Cliente pegarCliente(String nome, CentralDeInformacoes centralDeInformacoes) {
+	public Cliente pegarCliente(String email, CentralDeInformacoes centralDeInformacoes) {
 		for(Cliente c: centralDeInformacoes.getTodosOsClientes()) {
-			if(c.getNome().equals(nome)){
+			if(c.getEmail().equals(email)){
 				return c;
 			}
 		}
@@ -101,7 +104,7 @@ public class MetodosUtilizadosNoPrograma {
 				System.out.println("-Local Do Evento: ");
 				String localDoEvento = entrada.nextLine();
 				
-				Evento novoEvento = new Evento(nomeEvento,dateTime, localDoEvento, cliente,true);
+				Evento novoEvento = new Evento(nomeEvento,dateTime, localDoEvento, cliente,false);
 				
 				if(centralDeInformacoes.adicionarEvento(novoEvento)) {
 					System.out.println("-Evento cadatrado");
@@ -241,5 +244,43 @@ public class MetodosUtilizadosNoPrograma {
 		}
 		return cpf;
 	}
+
+	public static String converteDataLocalDateParaUmaDataString(LocalDateTime data) {
+	    DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy hh:mm:ss");
+	    return data.format(formatador);
+	}
+	
+	public ArrayList<Evento> listarEventosNContratados(CentralDeInformacoes arrayEvento){
+		ArrayList<Evento> eventos = new ArrayList();
+		
+		for(Evento evento: arrayEvento.getTodosEvento()) {
+			if(evento.getFoiContradoOuNao() == false) {
+				eventos.add(evento);
+			}
+		}
+		return eventos;
+	}
+	
+	public void printaEventosNContratados(ArrayList<Evento> eventos) {
+		int cont = 0;
+		for(Evento evento: eventos) {
+			System.out.println("["+cont++ +"]"+evento.getNome());
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }

@@ -1,11 +1,16 @@
-package servirce;
+package teste;
 
 import java.time.Month;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import enuns.TipoSexo;
+import baseDedados.CentralDeInformacoes;
+import baseDedados.Persistencia;
+import email.Mensageiro;
 import model.Cliente;
+import model.Evento;
+import relatorios.GeradorDeRelatorio;
+import util.MetodosUtilizadosNoPrograma;
 
 public class ProgramaPrincipal {
 	public static void main(String[] args) {
@@ -69,11 +74,11 @@ public class ProgramaPrincipal {
 				break;
 				
 			case"4":
-				System.out.print("Informe o nome do cliente Associado: ");
-				String nomeDoClienteAssociado = entrada.nextLine();
+				System.out.print("Informe o email do cliente: ");
+				String emailDoClienteAssociado = entrada.nextLine();
 				
-				if(centralDeInformacoes.existeCliente(nomeDoClienteAssociado)) {
-					Cliente cliente = metodos.pegarCliente(nomeDoClienteAssociado, centralDeInformacoes);
+				if(centralDeInformacoes.existeCliente(emailDoClienteAssociado)) {
+					Cliente cliente = metodos.pegarCliente(emailDoClienteAssociado, centralDeInformacoes);
 					if(metodos.criarNovoEvento(cliente, centralDeInformacoes)) {
 						persistencia.salvarCentral(centralDeInformacoes, nomeArquivo);
 					}
@@ -97,9 +102,25 @@ public class ProgramaPrincipal {
 				System.out.print("-Informe um mes: ");
 				String mes = entrada.nextLine().toUpperCase();
 				GeradorDeRelatorio.obterProgramacaoDoMes(Month.valueOf(mes), centralDeInformacoes);
+				System.out.println("-Relatorio gerado");
 				break;
-			default:
 				
+			case"8":
+				ArrayList eventoNContratados = metodos.listarEventosNContratados(centralDeInformacoes);
+				metodos.printaEventosNContratados(eventoNContratados);
+				
+				System.out.print("\n-Escolha um evento: ");
+				int eventoEscolhido = Integer.parseInt(entrada.nextLine());
+				
+				System.out.print("\n-Informe uma mensagem: ");
+				String mensagem = entrada.nextLine();
+				Evento eventoEs = (Evento) eventoNContratados.get(eventoEscolhido);
+				eventoEs.setFoiContradoOuNao(true);
+				persistencia.salvarCentral(centralDeInformacoes, nomeArquivo);
+				Mensageiro.enviarEmailParaCliente(eventoEs, mensagem);
+				break;
+				
+			default:
 				System.out.println("-Opção invalida\n-Escolha novamente\n");
 				break;
 			
